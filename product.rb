@@ -1,4 +1,3 @@
-require_relative 'simple_product.rb'
 
 class Product
   attr_accessor :handle, :title, :body, :vendor, :type, :tags, :published, :option1_name, :option1_value, :option2_name, :option2_value, :option3_name, :option3_value, :variant_sku, :variant_grams, :variant_inventory_tracker, :variant_inventory_policy, :variant_inventory_quantity, :variant_fullfilment_service, :variant_price, :variant_compare_at_price, :variant_requires_shipping, :variant_taxable, :variant_barcode, :image_src, :image_alt_text, :gift_card, :google_shopping_mpn, :google_shopping_age_group, :google_shopping_gender, :google_shopping_google_product_category, :seo_title, :seo_description, :google_shopping_adwords_grouping, :google_shopping_adwords_labels, :google_shopping_condition, :google_shopping_custom_product, :google_shopping_custom_label_0, :google_shopping_custom_label_1, :google_shopping_custom_label_2, :google_shopping_custom_label_3, :google_shopping_custom_label_4, :variant_image, :variant_weight_unit
@@ -46,7 +45,7 @@ class Product
     return 'Title'
   end
   def gen_option1_value
-    return 'not sure what goes here'
+    return 'Extra Small'
   end
   def gen_option2_name
     return ''
@@ -154,8 +153,8 @@ class Product
     return ''
   end
 
-  def simple_product_attributes
-    child = SimpleProduct.new(static_attributes, self)
+  def simple_product_attributes size
+    child = SimpleProduct.new(static_attributes(size), self)
     child.attributes
   end
 
@@ -164,13 +163,14 @@ class Product
   end
 
   def headers
-    instance_variables.map{|header| header.to_s.gsub '@', '' }
+    @keys.map{|header| header.to_s.gsub('@', '').gsub('_', ' ').capitalize }
   end
 
-  def static_attributes
+  def static_attributes size
     {
       :handle => @handle,
-      :option1_name => @option1_name
+      :option1_name => @option1_name,
+      :option1_value => size
     }
   end
 
