@@ -17,4 +17,4 @@ Run the script with an argument specifying how many products you want:
 
     ruby faker_script.rb 15
 
-That's it.
+The `shopify_data.csv` file will be generated in the project root directory. All you have to do is navigate to https://[shopifyhost.com]/admin/products and find the import button. Then select the generated file and boom - Your store now has dummy data.
