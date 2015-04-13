@@ -63,7 +63,7 @@ class Product
     return ''
   end
   def gen_variant_grams
-    return Faker::Number.number(4)
+    return Faker::Number.between(20, 1000)
   end
   def gen_variant_inventory_tracker
     return ''
@@ -231,7 +231,7 @@ class SimpleProduct < Product
     return "#{@handle}-#{@option1_value.downcase}"
   end
   def gen_variant_grams
-    return Faker::Number.number(2)
+    return Faker::Number.between(20, 1000)
   end
   def gen_variant_price
     return Faker::Commerce.price

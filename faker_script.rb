@@ -3,11 +3,11 @@ require 'csv'
 require_relative 'product'
 
 if ARGV.empty?
-	puts "Usage: ruby router.rb [n]"
+	puts "Usage: ruby faker_script.rb [n]"
 	puts "n: number of products to genetate"
 elsif ARGV[0].to_i == 0
-	puts "Usage: ruby router.rb [n]"
-	puts "n: number of products to genetate"
+	puts "Usage: ruby faker_script.rb [n]"
+	puts "where n = number of products to genetate"
 else
 	count = ARGV[0].to_i
 	CSV.open('shopify_data.csv', 'wb') do |csv|
