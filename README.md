@@ -9,9 +9,9 @@ Clone the repo:
 
     git clone https://github.com/dfry22/shopify-sample-data.git
 
-Make sure you have the Faker gem installed:
+Make sure you have the Faker and google-search gems installed:
 
-    gem install faker
+    gem install faker google-search
 
 Run the script with an argument specifying how many products you want:
 

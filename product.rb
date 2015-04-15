@@ -1,3 +1,4 @@
+require 'google-search'
 
 class Product
   attr_accessor :handle, :title, :body, :vendor, :type, :tags, :published, :option1_name, :option1_value, :option2_name, :option2_value, :option3_name, :option3_value, :variant_sku, :variant_grams, :variant_inventory_tracker, :variant_inventory_policy, :variant_inventory_quantity, :variant_fullfilment_service, :variant_price, :variant_compare_at_price, :variant_requires_shipping, :variant_taxable, :variant_barcode, :image_src, :image_alt_text, :gift_card, :google_shopping_mpn, :google_shopping_age_group, :google_shopping_gender, :google_shopping_google_product_category, :seo_title, :seo_description, :google_shopping_adwords_grouping, :google_shopping_adwords_labels, :google_shopping_condition, :google_shopping_custom_product, :google_shopping_custom_label_0, :google_shopping_custom_label_1, :google_shopping_custom_label_2, :google_shopping_custom_label_3, :google_shopping_custom_label_4, :variant_image, :variant_weight_unit
@@ -93,7 +94,8 @@ class Product
     return ''
   end
   def gen_image_src
-    return Faker::Avatar.image
+    # we can choose specific criteria but I choose first to make it easy
+    return Google::Search::Image.new(query: @title).first.uri
   end
   def gen_image_alt_text
     return Faker::Lorem.sentence
