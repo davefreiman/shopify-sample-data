@@ -1,6 +1,7 @@
 require 'faker'
 require 'csv'
 require_relative 'product'
+require_relative 'simple_product'
 
 if ARGV.empty?
 	puts "Usage: ruby faker_script.rb [n]"
@@ -24,5 +25,3 @@ else
 		puts 'done'
 	end
 end
-
-
