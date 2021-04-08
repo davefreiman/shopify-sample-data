@@ -26,13 +26,13 @@ class Product
     return @title
   end
   def gen_body
-    return Faker::Lorem.paragraph(1)
+    return Faker::Lorem.paragraph(sentence_count: 1)
   end
   def gen_vendor
     return Faker::Company.name
   end
   def gen_type
-    return Faker::Commerce.department(1, true)
+    return Faker::Commerce.department(max: 1, fixed_amount: true)
   end
   def gen_tags
     return Faker::Lorem.words.join(",")
@@ -62,7 +62,7 @@ class Product
     return ''
   end
   def gen_variant_grams
-    return Faker::Number.between(20, 1000)
+    return Faker::Number.between(from: 20, to: 1000)
   end
   def gen_variant_inventory_tracker
     return ''
@@ -122,7 +122,7 @@ class Product
     return @type
   end
   def gen_google_shopping_adwords_labels
-    return Faker::Lorem.sentence(3, true)
+    return Faker::Lorem.sentence(word_count: 3, supplemental: true)
   end
   def gen_google_shopping_condition
     return ['new', 'used'].sample
