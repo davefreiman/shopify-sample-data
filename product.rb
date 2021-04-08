@@ -68,7 +68,7 @@ class Product
     return ''
   end
   def gen_variant_inventory_quantity
-    return Faker::Number.number(1)
+    return Faker::Number.number(digits: 1)
   end
   def gen_variant_inventory_policy
     return 'deny'
