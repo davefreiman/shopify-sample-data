@@ -52,7 +52,7 @@ class SimpleProduct < Product
     return "#{@handle}-#{@option1_value.downcase}"
   end
   def gen_variant_grams
-    return Faker::Number.between(20, 1000)
+    return Faker::Number.between(from: 20, to: 1000)
   end
   def gen_variant_price
     return Faker::Commerce.price
